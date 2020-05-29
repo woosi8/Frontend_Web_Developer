@@ -5,17 +5,102 @@
     <title>Document</title>
     <meta name="description" content="Portfolio for software engineer Asher" />
     <meta name="author" content="Asher" />
-    <link rel="icon" type="image/png" href="imgs/accessible-icon-brands.png" />
+    <link rel="icon" type="image/png" href="imgs/bahai-solid.png" />
     <script
-    src="https://kit.fontawesome.com/d6ae544de2.js"
-    crossorigin="anonymous"
+      src="https://kit.fontawesome.com/d6ae544de2.js"
+      crossorigin="anonymous"
     ></script>
     <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,600&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,600&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <!---------------------- Navbar ---------------------->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <i class="fas fa-bahai"></i>
+        <a href="#">Asher</a>
+      </div>
+      <div class="navbar__menu">
+        <ul class="navbar__menu">
+          <li class="navbar__menu__item">Home</li>
+          <li class="navbar__menu__item">about</li>
+          <li class="navbar__menu__item">skills</li>
+          <li class="navbar__menu__item">my work</li>
+          <li class="navbar__menu__item">testimonials</li>
+          <li class="navbar__menu__item">contact</li>
+        </ul>
+      </div>
+    </nav>
+    <!---------------------- Home ---------------------->
+    <section id="home">
+      <img src="imgs/" alt="Asher's profile photo" class="home__avater" />
+      <h1 class="home__title">
+        Hello, <br />
+        I'm Asher
+      </h1>
+      <h2 class="home__description">
+        A softerware frontend engineer
+      </h2>
+      <button class="home__contact">contact me</button>
+    </section>
+    <!---------------------- About ---------------------->
+    <section id="about">
+      <h1>About me</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
+        repudiandae tempora obcaecati officia molestias, atque cumque tenetur
+        sint? Est facere alias quos similique sunt. Tempora exercitationem
+        veniam quia aspernatur aliquid?
+      </p>
+      <div class="about__majors">
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab"></i>
+          </div>
+          <div class="major__title">Html</div>
+          <div class="major__description">mark-up,sentectic</div>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab"></i>
+          </div>
+          <div class="major__title">Html</div>
+          <div class="major__description">mark-up,sentectic</div>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab"></i>
+          </div>
+          <div class="major__title">Html</div>
+          <div class="major__description">mark-up,sentectic</div>
+        </div>
+      </div>
+      <div class="about__jobs">
+        <div class="job">
+          <img src="" alt="" class="job__logo" />
+          <p class="job__name">kyongki uni</p>
+          <p class="job__period"></p>
+        </div>
+        <div class="job">
+          <img src="" alt="" class="job__logo" />
+          <p class="job__name">kyongki uni</p>
+          <p class="job__period"></p>
+        </div>
+      </div>
+    </section>
+
+    <!---------------------- Skils ---------------------->
+    <section id="skils"></section>
+
+    <!---------------------- Work ---------------------->
+    <section id="work"></section>
+    <!---------------------- Testimonials ---------------------->
+    <section id="testimonials"></section>
+    <!---------------------- Contact ---------------------->
+    <section id="contact"></section>
+  </body>
 </html>
