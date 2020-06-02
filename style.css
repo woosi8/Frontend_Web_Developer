@@ -35,11 +35,14 @@
 /* Universe tags */
 #{
     box-sizing: border-box;
+
 }
 body {
   font-family: "Open Sans", sans-serif;
+  text-transform: capitalize;
   margin:0;
   cursor: default;
+  
 }
 a{
   text-decoration: none;
@@ -48,6 +51,17 @@ a{
 ul{
   list-style: none;
   padding-left:0;
+}
+li{
+  list-style: none;
+}
+button{
+  background-color: transparent;
+  cursor:pointer;
+  border:none;
+  outline:none;
+  text-transform: capitalize;
+
 }
 /* Typography */
 h1 {
@@ -104,5 +118,33 @@ p{
 }
 .navbar__menu__item:hover{
   background-color: var(--color-dark-pink);
+
+}
+
+/* Home */
+
+#home{
+  background: url('imgs/03.jpg') center/cover no-repeat;
+  padding:40px;
+  text-align: center;
+}
+.home__avater{
+  width:250px;
+  height:250px;
+  border-radius: 50%;
+  border: 2px solid var(--color-dark-white);
+}
+.home__title,
+.home__description{
+  color:var(--color-white)
+}
+.home__contact{
+  font-size: var(--font-regular);
+  font-weight: var(--weight-semi-bold);
+  margin:24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-white);
+  border-radius: var(--size-border-radius);
+  color: var(--color-white);
 
 }
