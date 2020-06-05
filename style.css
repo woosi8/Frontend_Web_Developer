@@ -370,3 +370,48 @@ p{
   background-color: var(--color-dark-white);
 }
 
+
+/* Testimonials *//* Testimonials *//* Testimonials *//* Testimonials *//* Testimonials */
+
+#testimonials{
+  background-color: var(--color-light-white);
+}
+
+.testimonials{
+  margin: 40px;
+}
+
+.testimonial{
+  display: flex;
+  margin: 32px 0;
+}
+
+.testimonial:nth-child(even){
+  flex-direction: row-reverse;
+}
+
+.testimonial__avatar{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.testimonial .testimonial__avatar:nth-child(odd){
+  margin-right: 40px;
+
+}
+.testimonial:nth-child(even) .testimonial__avatar{
+  margin-left: 40px;
+}
+
+.testmonial__speech-bubble{
+  padding: 18px ;
+  background-color: var(--color-white);
+  border-radius: var(--size-border-radius);
+}
+
+.testmonial__speech-bubble p{
+  color: var(--color-light-grey);
+}
+.testmonial__speech-bubble a{
+  color: var(--color-blue);
+}
