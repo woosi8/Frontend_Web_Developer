@@ -275,7 +275,17 @@ p{
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding:8px 48px;
+  text-align: center;
+
 }
+
+.category__p{
+ display: inline-block;
+ margin: 0;
+ padding-left: 30px;
+
+}
+
 .category__btn.active,
 .category__btn:hover{
  background-color: var(--color-dark-pink);
@@ -298,7 +308,7 @@ p{
   line-height: 24px;
   position: relative;
   top: -20px;
-  left: 4px;
+  left: 14px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
