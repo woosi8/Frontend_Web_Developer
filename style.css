@@ -123,6 +123,15 @@ p{
 
 }
 
+.navbar__toggle-btn{
+  position: absolute;
+  right: 32px;
+  top: 24px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none;
+}
+
 /* Home *//* Home *//* Home *//* Home *//* Home *//* Home */
 
 #home{
@@ -175,12 +184,17 @@ p{
   width: 170px;
   height: 170px;
   font-size: 70px;
-  line-height: 170px;
-  margin: auto;
   border: 1px solid var(--color-blue);
   border-radius:50%;
   margin-bottom: 16px;
   color:var(--color-blue)
+}
+
+.major__icon svg{
+  line-height: 170px;
+  margin: auto;
+
+
 }
 
 .major__icon i{
@@ -441,4 +455,43 @@ p{
 .contact__links svg:hover{
   transform: scale(1.2);
   transition: all var(--animation-duration) ease-in;
+}
+
+
+/* For below 768px screen width */
+
+@media screen and (max-width:768px) {
+
+  .navbar__toggle-btn{
+    display: block;
+  }
+  #navbar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu{
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+
+  .about__majors{
+    flex-direction: column;
+  }
+  .major{
+    margin-bottom: 38px;
+  }
+  .skillset{
+    flex-direction: column;
+  }
+  .project{
+    flex-grow: 1;
+  }
+  .testimonial__avatar{
+    width: 80px;
+    height: 80px;
+    /* margin-top: 200px; */
+  }
 }
