@@ -100,7 +100,6 @@ p{
   background-color: transparent;
   color:var(--color-white);
   transition: all var(--animation-duration) ease-in-out;
-  overflow: hidden;
 }
 #navbar.navbar--dark{
   color: var(--color-black);
