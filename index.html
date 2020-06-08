@@ -28,12 +28,12 @@
       </div>
       <div class="navbar__menu">
         <ul class="navbar__menu">
-          <li class="navbar__menu__item active">Home</li>
-          <li class="navbar__menu__item">about</li>
-          <li class="navbar__menu__item">skills</li>
-          <li class="navbar__menu__item">my work</li>
-          <li class="navbar__menu__item">testimonials</li>
-          <li class="navbar__menu__item">contact</li>
+          <li class="navbar__menu__item active" data-link="#home">Home</li>
+          <li class="navbar__menu__item" data-link="#about">about</li>
+          <li class="navbar__menu__item" data-link="#skills">skills</li>
+          <li class="navbar__menu__item" data-link="#work">my work</li>
+          <li class="navbar__menu__item" data-link="#testimonials">testimonials</li>
+          <li class="navbar__menu__item" data-link="#contact">contact</li>
         </ul>
       </div>
       <!-- Toggel button-->
@@ -53,6 +53,8 @@
         src="imgs/05.jpg"
         alt="Asher's profile photo"
         class="home__avater"
+        onmouseenter="zoomIn(event)"
+        onmouseleave="zoomOut(event)"
       />
       <h1 class="home__title">
         Hello, <br />
