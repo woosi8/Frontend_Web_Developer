@@ -144,39 +144,6 @@ p{
 
 
 
-.top-arrow{
-  position: fixed;
-  bottom: 3em;
-  right: 3em;
-  padding: 1.5rem;
-
-}
-#back-to-top {
-  display: none;
-  color:rgb(0, 153, 51)
-  ;
-  transition: all var(--animation-duration) ease-in-out;
-
-  
-}
-#back-to-top svg{
-  width: 2.625rem; 
-  height: 2.25rem;
-  transition: all var(--animation-duration) ease-in-out;
-
-}
-
-.top-arrow:hover #back-to-top svg {
-  height: 3.25rem;
-  color: rgb(0, 255, 0)
-  ;
-
-}
-
-.top-arrow.visible #back-to-top{
-  display: block;
-}
-
 /* Home *//* Home *//* Home *//* Home *//* Home *//* Home */
 
 #home{
@@ -185,6 +152,8 @@ p{
   padding-top: 100px;
   text-align: center;
 }
+
+
 .home__avater{
   width:250px;
   height:250px;
@@ -550,3 +519,44 @@ p{
 }
 
 
+
+
+/* <!-- Arrow up--> */
+
+.top-arrow{
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+  padding: 1.5rem;
+
+}
+#back-to-top {
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  color:rgb(0, 153, 51);
+  transition: all var(--animation-duration) ease-in-out;
+
+  
+}
+#back-to-top svg{
+  width: 2.625rem; 
+  height: 2.25rem;
+  transition: all var(--animation-duration) ease-in-out;
+
+}
+
+.top-arrow:hover #back-to-top svg {
+  height: 3.25rem;
+  color: rgb(0, 255, 0)
+  ;
+
+}
+
+.top-arrow.visible #back-to-top{
+  /* display: block; */
+  opacity: 1;
+  pointer-events: auto;
+
+
+}
