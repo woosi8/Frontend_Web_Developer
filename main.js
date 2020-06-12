@@ -78,27 +78,43 @@ document.addEventListener("scroll", () => {
 // End// End// End// End// End// End// End// End
 
 // Projects
-const workBtnContainer = document.querySelector(".work__categories");
-const projectContainer = document.querySelector(".work__projects");
-const proejects = document.querySelectorAll(".project");
+const workBtnContainer = document.querySelector(".work__categories"); //project 버튼 전체
+const projectContainer = document.querySelector(".work__projects"); //컨텐츠 전체
+const proejects = document.querySelectorAll(".project"); //컨텐츠 각각
 workBtnContainer.addEventListener("click", (e) => {
     const filter =
+        // button에는 data-filter값이 있지만 그 안에 span태그에는 없어서
+        // p태그는 btn클릭 범주안에 들어가있어서 된다.
+        // 클릭한곳이 즉, e값이 span이라면 span의 부모 즉 button에 data-filter값을 가져온다
         e.target.dataset.filter || e.target.parentNode.dataset.filter;
     if (filter == null) {
+        // 혹시 몰라서 filter가 null 이면 아무것도 하지않기
         return;
     }
+
+    // Remove selection from the previous item and select the new one
+    const selectElem = document.querySelector(".category__btn.selected");
+    if (selectElem != null) {
+        selectElem.classList.remove("selected");
+    }
+    e.target.classList.add("selected");
+
+    // 필터링해서 걸려진것들에 anim-out을 준다 (먼저 anim이 된다음에 아래 0.3초후에 효과가 사라진다)
     projectContainer.classList.add("anim-out");
     setTimeout(() => {
         proejects.forEach((project) => {
+            // 만약 위에서 선택한 filter가 * 이거나 선택한 data-type과 똑같으면 (즉 같은 필터값을 나오게)
             if (filter === "*" || filter === project.dataset.type) {
-                project.classList.remove("invisible");
+                project.classList.remove("invisible"); //타입이 동일한 클래스에 invisible 제거해서 보이게하기
             } else {
                 project.classList.add("invisible");
             }
         });
+        // 클릭시 0.3초후에 anim-out 이 사라지고 본 내용이 돌아오게한다. 그래서 효과가 보이게 한다
         projectContainer.classList.remove("anim-out");
     }, 300);
 });
+
 // End// End// End// End// End// End// End// End
 
 // Common Functions
