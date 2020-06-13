@@ -139,6 +139,7 @@ p{
   font-size: 24px;
   color: var(--color-white);
   display: none;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 
@@ -405,7 +406,9 @@ p{
 
 }
 
-
+.proejct__description h3{
+  color: var(--color-blue);
+}
 .proejct__description h3::after{
   content: '';
   display: block;
@@ -413,7 +416,7 @@ p{
   left: 50%;
   transform: translateX(-50%);
   margin-top: 8px;
-  width: 25px;
+  width: 50px;
   height: 2px;
   background-color: var(--color-dark-white);
 }
@@ -492,46 +495,6 @@ p{
 }
 
 
-/* For below 768px screen width */
-
-@media screen and (max-width:768px) {
-
-  .navbar__toggle-btn{
-    display: block;
-  }
-  #navbar{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar__menu{
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    display: none;
-  }
-
-  .about__majors{
-    flex-direction: column;
-  }
-  .major{
-    margin-bottom: 38px;
-  }
-
-  .skillset{
-    flex-direction: column;
-  }
-  .project{
-    flex-grow: 1;
-  }
-  .testimonial__avatar{
-    width: 80px;
-    height: 80px;
-    /* margin-top: 200px; */
-  }
-
-
-
 
 
 /* <!-- Arrow up--> */
@@ -573,3 +536,68 @@ p{
 
 
 }
+
+/* For below 768px screen width */
+
+@media screen and (max-width:768px) {
+
+  #navbar{
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--color-blue);
+  }
+  #navbar.navbar--dark{
+    padding: 16px;
+  }
+  .navbar__menu{
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .navbar__menu.open{
+    display: block;
+    
+  }
+
+
+  @keyframes fadeOut {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+  }
+  .navbar__toggle-btn{
+    display: block;
+  }
+
+  .navbar__toggle-btn .fa-redo{
+    display: none;
+  }
+  .navbar__menu.open~.navbar__toggle-btn .fa-redo {
+    display: block;
+  }
+  .navbar__menu.open~.navbar__toggle-btn .fa-bars{
+    display: none;
+
+  }
+
+  .about__majors{
+    flex-direction: column;
+  }
+  .major{
+    margin-bottom: 38px;
+  }
+
+  .skillset{
+    flex-direction: column;
+  }
+  .project{
+    flex-grow: 1;
+  }
+  .testimonial__avatar{
+    width: 80px;
+    height: 80px;
+    /* margin-top: 200px; */
+  }
+
+
+

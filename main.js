@@ -25,13 +25,6 @@ btt.addEventListener("click", (e) => {
     scrollIntoView("#home");
     // scrollTop();
 });
-
-// function scrollTop() {
-//     if (window.pageYOffset > 0) {
-//         window.scrollBy(0, -50);
-//         setTimeout(scrollTop, 0);
-//     }
-// }
 // End// End// End// End// End// End// End// End
 
 // Handle scrolling when tapping on the navbar menu
@@ -44,8 +37,17 @@ navbarMenu.addEventListener("click", (event) => {
     }
     // const scrollTo = document.querySelector(link);
     // scrollTo.scrollIntoView({ behavior: "smooth" });
+    navbarMenu.classList.remove("open"); // 네브바 클릭시 항상 창이 닫힐수있도록
     scrollIntoView(link);
 });
+// End// End// End// End// End// End// End// End
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+    navbarMenu.classList.toggle("open");
+});
+
 // End// End// End// End// End// End// End// End
 
 // Home-Img Mouseover
@@ -102,6 +104,7 @@ workBtnContainer.addEventListener("click", (e) => {
     // 필터링해서 걸려진것들에 anim-out을 준다 (먼저 anim이 된다음에 아래 0.3초후에 효과가 사라진다)
     projectContainer.classList.add("anim-out");
     setTimeout(() => {
+        // foreach 는 quersysleectorAll에 있는 값들을 배열형태로 가져온다
         proejects.forEach((project) => {
             // 만약 위에서 선택한 filter가 * 이거나 선택한 data-type과 똑같으면 (즉 같은 필터값을 나오게)
             if (filter === "*" || filter === project.dataset.type) {
