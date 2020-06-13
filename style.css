@@ -107,9 +107,12 @@ p{
   background-color: var(--color-blue);
   padding: 8px;
   opacity: 0.8;
+
+  
 }
 .navbar__menu{
   display: flex;
+  
 }
 .navbar__logo{
   font-size: var(--font-medium);
@@ -123,7 +126,7 @@ p{
   cursor:pointer;
   border: 1px solid transparent;
   border-radius: var(--size-border-radius);
-
+  
 }
 
 .navbar__menu__item:hover{
@@ -545,25 +548,30 @@ p{
     flex-direction: column;
     align-items: flex-start;
     background-color: var(--color-blue);
+
   }
   #navbar.navbar--dark{
     padding: 16px;
+
   }
   .navbar__menu{
     flex-direction: column;
     text-align: center;
     width: 100%;
     display: none;
+
   }
   .navbar__menu.open{
     display: block;
-    
+    transition: all 1s ease-in;
+    animation:fadeIn .8s forwards ease-in;
+
   }
 
 
-  @keyframes fadeOut {
-    0%{opacity: 1;}
-    100%{opacity: 0;}
+  @keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
   }
   .navbar__toggle-btn{
     display: block;
@@ -574,11 +582,13 @@ p{
   }
   .navbar__menu.open~.navbar__toggle-btn .fa-redo {
     display: block;
+    animation:fadeIn .8s forwards ease-in;
   }
   .navbar__menu.open~.navbar__toggle-btn .fa-bars{
     display: none;
-
   }
+
+
 
   .about__majors{
     flex-direction: column;
