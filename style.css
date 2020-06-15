@@ -513,7 +513,9 @@ p{
   /* display: none; */
   opacity: 0;
   pointer-events: none;
-  color:rgb(0, 153, 51);
+  /* color:rgb(0, 153, 51); */
+  color: rgb(143, 188, 143)
+  ;
   transition: all var(--animation-duration) ease-in-out;
 
   
@@ -527,9 +529,11 @@ p{
 
 .top-arrow:hover #back-to-top svg {
   height: 3.25rem;
-  color: rgb(0, 255, 0)
-  ;
+  /* color: rgb(0, 255, 0); */
+  color:rgb(47, 79, 79)
 
+
+  ;
 }
 
 .top-arrow.visible #back-to-top{
