@@ -1,4 +1,4 @@
-# **최혁** (Asher)
+# **Hyuck Choi** (Asher)
 
 ## Introduction
 
