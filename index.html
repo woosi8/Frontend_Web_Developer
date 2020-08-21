@@ -1,24 +1,26 @@
-<html lang="en">
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+  
   <head >
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <meta name="description" content="Portfolio for software engineer Asher" />
     <meta name="author" content="Asher" />
+    <meta http-equiv="Location" content="Korea" />
+    <meta http-equiv="Copyright" content="tmfvmehek@gmail.com" />
+    <title>Document</title>
     <link rel="icon" type="image/png" href="imgs/bahai-solid.png" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,600&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/d6ae544de2.js"
       crossorigin="anonymous"
     ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
   </head>
   <body>
-
     <!---------------------- Navbar ---------------------->
     <nav id="navbar">
       <div class="navbar__logo">
@@ -38,41 +40,110 @@
         <i class="fas fa-redo"></i>
       </button>
     </nav>
+
     <!---------------------- Home ---------------------->
     <section id="home">
-      <div class="home__container">
-        <img
-          src="imgs/05.jpg"
-          alt="Asher's profile photo"
-          class="home__avater"
-          onmouseenter="zoomIn(event)"
-          onmouseleave="zoomOut(event)"
-        />
-        <h1 class="home__title">
-          Hello, <br />
-          I'm Asher
-        </h1>
-        <h2 class="home__description">
-          A softerware frontend engineer
-        </h2>
-        <button class="home__contact">contact me</button>
-      </div> 
+      <ul class="slide">
+        <li class="home__container slides">
+          <img
+            src="imgs/profile__1.jpg"
+            alt="Asher's profile photo"
+            class="home__avater"
+            onmouseenter="zoomIn(event)"
+            onmouseleave="zoomOut(event)"
+          />
+          <h1 class="home__title">
+            Hello, <br />
+            I'm Asher
+          </h1>
+          <h2 class="home__description">
+            I'm a Web Developer
+          </h2>
+          <button class="home__contact">contact me</button>
+          <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+              <!-- <h2>I'm a softengineer</h2> -->
+              <img src="imgs/Resume.png" alt="">
+            </div>
+            <button class="closeBtn">X</button>
+          </div>
+        </li> 
+        <li class="home__container slides">
+          <img
+            src="imgs/profile__2.jpg"
+            alt="Asher's profile photo"
+            class="home__avater"
+            onmouseenter="zoomIn(event)"
+            onmouseleave="zoomOut(event)"
+          />
+          <h1 class="home__title">
+            Hello, <br />
+            I'm Hyuck Choi
+          </h1>
+          <h2 class="home__description">
+            A Softerware Frontend Engineer
+          </h2>
+          <button class="home__contact">contact me</button>
+          <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+              <img src="imgs/Resume.png" alt="">
+            </div>
+            <button class="closeBtn">X</button>
+          </div>
+        </li> 
+        <li class="home__container slides">
+          <img
+            src="imgs/profile__3.jpg"
+            alt="Asher's profile photo"
+            class="home__avater"
+            onmouseenter="zoomIn(event)"
+            onmouseleave="zoomOut(event)"
+          />
+          <h1 class="home__title">
+            안녕하세요, <br />
+            최 혁 입니다.
+          </h1>
+          <h2 class="home__description">
+            프론트엔드 개발자 입니다.
+          </h2>
+          <button class="home__contact">contact me</button>
+          <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+              <img src="imgs/Resume.png" alt="">
+            </div>
+            <button class="closeBtn">X</button>
+          </div>
+        </li> 
+      </ul>
+      <a href="#" id="prev" class="button">
+        <i class="fas fa-arrow-left arrow"></i>
+      </a>
+      <a href="#" id="next" class="button">
+        <i class="fas fa-arrow-right arrow"></i>
+      </a>
+      <ul class="slide_pagination">
+        <li class="dot dot_active" data-index="0"><a href="#"></a></li>
+        <li class="dot" data-index="1"><a href="#"></a></li>
+        <li class="dot" data-index="2"><a href="#"></a></li>
+      </ul>
     </section>
     <!---------------------- About ---------------------->
     <section id="about" class="section section__container">
       <h1>About me</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
-        repudiandae tempora obcaecati officia molestias, atque cumque tenetur
-        sint? Est facere alias quos similique sunt. Tempora exercitationem
-         aspernatur asdasdasdasd? go so
-      </p>
+      <!-- <p>
+        <span>I Recently have been stuyding Vanila Javascript on my own.(Online class).</span> 
+        <span>It's been an year since i start progamming.</span>
+      </p> -->
+
       <div class="about__majors">
         <div class="major">
           <div class="major__icon">
             <i class="fab fa-html5"></i>
           </div>
-          <h2 class="major__title">Html</h2>
+          <h2 class="major__title">HTML</h2>
           <p class="major__description">mark-up,sentectic</p>
         </div>
         <div class="major">
@@ -80,46 +151,42 @@
             <i class="fab fa-css3-alt"></i>
           </div>
             <h2 class="major__title">CSS</h2>
-            <p class="major__description">mark-up,sentectic</p>
+            <p class="major__description">css without JQuery</p>
           </div>
         <div class="major">
           <div class="major__icon">
             <i class="fab fa-js"></i>
           </div>
             <h2 class="major__title">JS</h2>
-            <p class="major__description">mark-up,sentectic</p>
+            <p class="major__description">Vanila javascript</p>
           </div>
       </div>
-
       <div class="about__jobs">
         <div class="job">
           <div class="job__description">
-            <img src="" alt="kUniversity" class="job__logo" />
-            <p class="job__name">ko </p>
-            <p class="job__period"></p>
+            <a href="http://www.kyonggi.ac.kr//KyonggiEng.kgu" target="blank"><img src="imgs/KGU.gif" alt="kyonggi university" class="job__logo" /></a>
+            <p class="job__name">kyonggi university in Korea <br/>Major : Tourism Management</p>
+            <p class="job__period">  Graduation 2017</p>
           </div>
+          
+
         </div>
           <div class="job">
             <div class="job__description">
-            <img src="" alt="Korea" class="job__logo" />
-            <p class="job__name">k</p>
-            <p class="job__period"></p>
+            <img src="imgs/Korea Travel.gif" alt="Korea Travel Tour Agancy" class="job__logo" />
+            <p class="job__name">Korea Travel(Tour agency) In HCM Branch(Vietnam) <br/>Position: Office Operator</p>
+            <p class="job__period">01.12.2017 –01.07.2018</p>
           </div>
         </div>
     </section>
 
-    
     <!---------------------- Skils ---------------------->
     <section id="skills" class="section">
       <div class="section__container">
       <h1>Skills</h1>
       <h2>Skills & Attirbute</h2>
       <p>
-        i used to live in vietnam for 2years, so i'm familiar with southEast
-        Asia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-        hic! Quia assumenda est necessitatibus adipisci molestias voluptates,
-        eveniet maiores ab?  quaerat officia blanditiis perspiciatis
-        tenetur reprehenderit dicta, quibusdam nemo!
+   
       </p>
       <div class="skillset">
         <div class="skillset__left">
@@ -127,25 +194,16 @@
           <div class="skill">
             <div class="skill_description">
               <span>HTML</span>
-              <span>99%</span>
+              <span>upper intermediate</span>
             </div>
             <div class="skill__bar">
-              <div class="skill_value" style="width:99%"></div>
+              <div class="skill_value" style="width:80%"></div>
             </div>
           </div>
           <div class="skill">
             <div class="skill_description">
               <span>CSS</span>
-              <span>99%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill_value" style="width:99%" ></div>
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skill_description">
-              <span>javascript</span>
-              <span>80%</span>
+              <span>upper intermediate</span>
             </div>
             <div class="skill__bar">
               <div class="skill_value" style="width:80%" ></div>
@@ -153,20 +211,29 @@
           </div>
           <div class="skill">
             <div class="skill_description">
-              <span>node.js</span>
-              <span>99%</span>
+              <span>javascript</span>
+              <span>intermediate</span>
             </div>
             <div class="skill__bar">
-              <div class="skill_value" style="width:99%" ></div>
+              <div class="skill_value" style="width:70%" ></div>
             </div>
           </div>
           <div class="skill">
             <div class="skill_description">
-              <span>HTML</span>
-              <span>99%</span>
+              <span>Excel</span>
+              <span>intermediate</span>
             </div>
             <div class="skill__bar">
-              <div class="skill_value" style="width:99%" ></div>
+              <div class="skill_value" style="width:70%" ></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill_description">
+              <span>PhotoShop</span>
+              <span>elementary</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill_value" style="width:50%" ></div>
             </div>
           </div>
         </div>
@@ -177,7 +244,7 @@
               <li><span>Visual Studio Code</span></li>
               <li><span>Atom</span></li>
               <li><span>SourceTree</span></li>
-              <li><span>Adobe Programs</span></li>
+              <li><span>Adobe PhotoShop</span></li>
             </ul>
           </div>
           <div class="etc">
@@ -210,111 +277,142 @@
           <p class="category__p">VanillaJavaScript</p>
           <span class="category__count">3</span>
         </button>
-        <button class="category__btn" data-filter ="mobile">
-          <p class="category__p">Mobile</p>
+        <button class="category__btn" data-filter ="note">
+          <p class="category__p">note</p>
           <span class="category__count">2</span>
         </button>
       </div>
-
       <div class="work__projects">
-        <a href="" class="project" target="blank" data-type="css" 
+        <a href="https://woosi8.github.io/css_compilation/simple_compilation.html" class="project" target="blank" data-type="css" 
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/css_compilation.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>simple_css_compilation</h3>
+            <span>compilate css simply</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="css"
+        <a href="https://woosi8.github.io/css_compilation/portfolio_1.html" class="project" target="blank" data-type="css"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/clone with Responsive Web.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>Clone Site (Responsive Web)</h3>
+            <span>Clone coding with HTML,CSS and Responsive Web</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="css"
+        <a href="https://woosi8.github.io/Css-Waxom/" class="project" target="blank" data-type="css"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/clone with JQuery.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>Clone Site (JQuery)</h3>
+            <span>Clone coding with HTML,CSS and JQuery</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="vjs"
+        <a href="https://woosi8.github.io/css_compilation/grid.html" class="project" target="blank" data-type="css"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/grid.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>simple grid</h3>
+            <span>grid with Responsive site</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="vjs"
+        <a href="https://woosi8.github.io/js_compilation/js-compilation.html
+        " class="project" target="blank" data-type="vjs"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/Simple_JS _compilation.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>Simple JS compilation</h3>
+            <span>Simple vanila javascript compilation</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="mobile"
+        <a href="https://woosi8.github.io/js_compilation/games.html" class="project" target="blank" data-type="vjs"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/Simple_JS_games.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>Simple JS  games</h3>
+            <span>Simple game with vanila javascript</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="mobile"
+        <a href="https://woosi8.github.io/js_compilation/Character%20Show/Charac.html" class="project" target="blank" data-type="vjs"
           >
-          <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
+          <img src="imgs/Chracter_Show.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>Chracter Show</h3>
+            <span>Simple chrater show with vanila javascript</span>
           </div>
         </a>
-        <a href="" class="project" target="blank" data-type="mobile"
+        <a href="" class="project" target="blank" data-type="note"
           >
           <img src="imgs/project__1.png" alt="GibHub" class="project__img"/>
           <div class="proejct__description">
-            <h3>Youtube Site</h3>
-            <span>Clon coding with HTML and CSS</span>
+            <h3>JS note</h3>
+            <span>organizing note for data structure</span>
           </div>
         </a>
       </div>
     </section>
+
     <!---------------------- Testimonials ---------------------->
     <section id="testimonials" class="section ">
       <div class="section__container">
-        <h1>Testimonials</h1>
-        <h3>See what they say about me</h3>
+        <h1>certification</h1>
+        <!-- <h3>See what they say about me</h3> -->
         <div class="testmonials">
           <div class="testimonial">
-            <img src="imgs/06.jpg" alt="People" class="testimonial__avatar" />
-            <div class="testmonial__speech-bubble">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio temporibus animi quibusdam. Officiis necessitatibus quisquam enim et unde ipsam dignissimos debitis earum quam suscipit! Possimus ex quis dicta quasi! Voluptatem.</p>
-              <p class="name"><a href="">github</a> / Samsung</p>
+            <button class="testimonial__contact">
+              <img src="imgs/certification_JS_FLOW.png" alt="certification" class="testimonial__avatar" />
+            </button>
+            <div class="modal">
+              <div class="modal__overlay"></div>
+              <div class="modal__content_testmonial">
+                <img src="imgs/certification_JS_FLOW.png" alt="certification" class="testimonial__avatar" />
+              </div>
+              <button class="closeBtn">X</button>
             </div>
+            <div class="testmonial__speech-bubble">
+              <p>learn about functional programming basic skills.
+                </br>learn how to build map,filter,reduce projects.</br></br>
+                  hours : 3 hours 45 minutes</br>
+                  start date : September 17th 2019</br>
+                  end date : December 28th 2019</p>
+                  <p class="name"><a href="https://www.inflearn.com/course/%ED%95%B5%EC%8B%AC%EA%B0%9C%EB%85%90-javascript-flow/dashboard" target="blank">Inflearn</a> / Lecture</p>
+                </div>
           </div>
           <div class="testimonial">
-            <img src="imgs/06.jpg" alt="People" class="testimonial__avatar" />
+            <button class="testimonial__contact">
+              <img src="imgs/certification_JS_Interactive_Web.png" alt="certification" class="testimonial__avatar" />
+           </button>
+            <div class="modal">
+              <div class="modal__overlay"></div>
+              <div class="modal__content_testmonial">
+                <img src="imgs/certification_JS_Interactive_Web.png" alt="certification" class="testimonial__avatar" />
+              </div>
+              <button class="closeBtn">X</button>
+            </div>
             <div class="testmonial__speech-bubble">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio temporibus animi quibusdam. Officiis necessitatibus quisquam enim et unde ipsam dignissimos debitis earum quam suscipit! Possimus ex quis dicta quasi! Voluptatem.</p>
-              <p class="name"><a href="">github</a> / Samsung</p>
+              <p>laern about making an interactive webpage with vanilla javascript.
+              </br>
+                learn how to deal with css 3D, javascript basic skills
+                you can build unique UI website </br></br>
+                hours : 10 hours 37 minutes</br>
+                start date : Aug 5th 2019</br>
+                end date : Aug 28th 2019</p>
+                <p class="name"><a href="https://www.inflearn.com/course/interactive_web#" target="blank">Inflearn</a> / Lecture</p>
+
             </div>
           </div>
          </div>
       </div>
     </section>
+
     <!---------------------- Contact ---------------------->
     <section id="contact" class="section">
       <h1 class="contact__title">Let's talk</h1>
       <h2 class="contact__email">dream@gmail.com</h2>
       <div class="contact__links">
-        <a href="github" target="blank"> 
+        <a href="https://github.com/woosi8" target="blank"> 
           <i class="fab fa-github hovers"></i>
         </a>
-        <a href="#" target="blank">
+        <a href="https://www.linkedin.com/in/hyuck-choi-77923512b/" target="blank">
           <i class="fa fa-linkedin-square"></i>
         </a>
       </div>
@@ -323,8 +421,8 @@
       </p>
       
     </section>
-     <!-- Arrow up-->
 
+     <!-- Arrow up-->
     <div class="top-arrow">
       <a id="back-to-top" href="#">
         <i class="fas fa-arrow-up"></i>
