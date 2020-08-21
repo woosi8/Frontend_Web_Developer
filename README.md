@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I'm currently learning Javascript and Python
+I'm currently learning VanilaJavascript
 
 2020 Goals: Get a job overseas, Be a soft engineer
 
