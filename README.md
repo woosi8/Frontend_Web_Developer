@@ -23,10 +23,10 @@ I like decoding. It's annyoing but when i gain the answer, it's so excited
 ## My Work
 ### HTML,CSS
 
--  [CSS_Compilation](https://woosi8.github.io/css_compilation/simple_compilation.html): compile simple css examples
--  [Responsive Web](https://woosi8.github.io/css_compilation/portfolio_1.html): response for mobile,table by media query
--  [Clone Web Site with Jquery](https://woosi8.github.io/Css-Waxom/): clone a desined site with Jquery
--  [Grid](https://woosi8.github.io/css_compilation/grid.html): WinForm basic grid sample and responsive web
+-  [CSS_Compilation](https://github.com/woosi8/css_compilation/tree/master/Simple_Css): compile simple css examples
+-  [Responsive Web](https://github.com/woosi8/css_compilation/tree/master/Responsive_Web): response for mobile,tablet     by media query
+-  [Clone Web Site with Jquery](https://github.com/woosi8/Css-Waxom): clone a desined site with Jquery
+-  [Grid](https://github.com/woosi8/css_compilation/tree/master/Grid): WinForm basic grid sample and responsive web
 
 ### JavaScript
 
