@@ -31,6 +31,6 @@ I like decoding. It's annyoing but when i gain the answer, it's so excited
 
 ### JavaScript
 
-- [JS_Compilation](https://woosi8.github.io/js_compilation/js-compilation.html): compile Accordian,Drag and Drop and Hover by Vanila Javascript
-- [JS_Games](https://woosi8.github.io/js_compilation/games.html): built Games(lottery,baseball, rock scissor paper) by Vanila Javascript
-- [JS_ChracterShow](https://woosi8.github.io/js_compilation/Character%20Show/Charac.html):
+- [JS_Compilation](https://github.com/woosi8/js_compilation/tree/master/Examples): compile Accordian,Drag and Drop and Hover by Vanila Javascript
+- [JS_Games](https://github.com/woosi8/js_compilation/tree/master/Games): built Games(lottery,baseball, rock scissor paper) by Vanila Javascript
+- [JS_ChracterShow](https://github.com/woosi8/js_compilation/tree/master/Character%20Show): working on
