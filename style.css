@@ -601,7 +601,15 @@ img{
 }
 
 .proejct__description p{
-  color: red;
+  margin-top: 25px;
+  color: #ed1515;
+  font-weight:bolder;
+  transform: translateY(-10px);
+
+}
+
+.proejct__description p:hover{
+  color: var(--color-blue);
 }
 
 .project:hover .proejct__description{

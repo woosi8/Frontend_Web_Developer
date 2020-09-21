@@ -14,22 +14,22 @@ Fun fact: I love to paly basketball and soccer.
 
 I like decoding. It's annyoing but when i gain the answer, it's so excited
 
-## Contacts
+## ☎️ Contacts
 
 - E-mail: [tmfvmehek@gmail.com](mailto:tmfvmehek@gmail.com)
 - LinkedIn: [Hyuck Choi](https://www.linkedin.com/in/hyuck-choi-77923512b/)
 - **Github** : [woosi8](https://github.com/woosi8)
 
-## My Work
+## 📁 My Work
 
-### HTML,CSS
+### - HTML,CSS
 
 - [CSS_Compilation](https://github.com/woosi8/css_compilation/tree/master/Simple_Css): compile simple css examples
 - [Scroll Show](https://github.com/woosi8/css_compilation/tree/master/scroll-show): Scroll animation by Jquery
 - [Clone Web Site with Jquery](https://github.com/woosi8/Css-Waxom): clone a desined site with Jquery
 - [Grid](https://github.com/woosi8/css_compilation/tree/master/Grid): WinForm basic grid sample and responsive web
 
-### JavaScript
+### - JavaScript
 
 - [JS_Compilation](https://github.com/woosi8/js_compilation/tree/master/Examples): compile Accordian,Drag and Drop and Hover by Vanila Javascript
 - [JS_Games](https://github.com/woosi8/js_compilation/tree/master/Games): built Games(lottery,baseball, rock scissor paper) by Vanila Javascript
