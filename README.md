@@ -19,6 +19,7 @@ I like decoding. It's annyoing but when i gain the answer, it's so excited
 - E-mail: [tmfvmehek@gmail.com](mailto:tmfvmehek@gmail.com)
 - LinkedIn: [Hyuck Choi](https://www.linkedin.com/in/hyuck-choi-77923512b/)
 - **Github** : [woosi8](https://github.com/woosi8)
+- Portfolio : https://woosi8.github.io/Frontend_Web_Developer/
 
 ## 📁 My Work
 
