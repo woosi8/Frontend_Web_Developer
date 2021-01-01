@@ -190,12 +190,51 @@ img{
   height:15.625rem; */
   border-radius: 50%;
   border: 2px solid var(--color-dark-white);
+  display: block;
+  margin:  0 auto;
 }
 
 .home__title,
 .home__description{
   color:var(--color-white);
   text-transform:none ;
+}
+
+.home__title{
+}
+
+.home__title div{
+  display: inline-block;
+  position: relative;
+}
+
+
+.home__title .dynamic::after{
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  background-color: red;
+}
+
+.home__title .dynamic2::after{
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  background-color: blue;
+}
+
+.home__title.blink div{
+  display: none;
 }
 
 .home__contact,.home__btn{

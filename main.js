@@ -21,7 +21,7 @@ document.addEventListener('scroll', () => {
 })
 // End// End// End// End// End// End// End// End
 
-// Common Functions
+///////////////////////////////// Common Functions
 function scroll(selector) {
     const scrollTo = document.querySelector(selector)
     scrollTo.scrollIntoView({ behavior: 'smooth' })
@@ -215,7 +215,7 @@ goToSlide(0)
 
 // End//
 
-// Pager in Home
+///////////////////////////////// Pager in Home
 const slidePager = document.querySelector('.slide_pagination')
 slidePager.addEventListener('click', (e) => {
     const pagerAct = document.querySelector('.dot.dot_active')
@@ -228,29 +228,30 @@ slidePager.addEventListener('click', (e) => {
     goToSlide(curIndex)
 })
 
-// End
+    // End
 
-// Slide Show in Testimonial
-;(function () {
-    const testElem = document.querySelector('#testimonials')
-    function showValue() {
-        const testmonials = document.querySelector('.testmonials')
-        let posY = testElem.getBoundingClientRect().top
-        //  posY의 현재탑높이값이 브라우저 전체높이에 3/10 보다 작을경우, 즉 엘리먼트의 탑이 전체높이에 3/10만큼 남았을때 조건발동
-        if (posY < window.innerHeight * 0.3) {
-            testmonials.classList.add('active')
-        } else {
-            testmonials.classList.remove('active')
+    ///////////////////////////////// Slide Show in Testimonial
+    ; (function () {
+        const testElem = document.querySelector('#testimonials')
+        function showValue() {
+            const testmonials = document.querySelector('.testmonials')
+            let posY = testElem.getBoundingClientRect().top
+            //  posY의 현재탑높이값이 브라우저 전체높이에 3/10 보다 작을경우, 즉 엘리먼트의 탑이 전체높이에 3/10만큼 남았을때 조건발동
+            if (posY < window.innerHeight * 0.3) {
+                testmonials.classList.add('active')
+            } else {
+                testmonials.classList.remove('active')
+            }
         }
-    }
 
-    window.addEventListener('scroll', function () {
-        showValue()
-    })
-})()
+        window.addEventListener('scroll', function () {
+            showValue()
+        })
+    })()
 
 // End
-// Modal in Home - 1
+
+///////////////////////////////// Modal in Home - 1
 const homeBtn = document.querySelectorAll('.home__contact')
 const testBtn = document.querySelectorAll('.testimonial__contact') //button
 const modal = document.querySelectorAll('.modal')
@@ -300,5 +301,64 @@ testBtn.forEach((event) => {
 //         event.target.parentNode.classList.add('hidden')
 //     })
 // })
-
 //End
+
+
+///////////////////////////////// Dynamic and blink
+const homeTitleElem = document.querySelector('.home__title')
+const dynamicElem = document.querySelector('.dynamic');
+const dynamicElem2 = document.querySelector('.dynamic2');
+function blink() {
+    homeTitleElem.classList.toggle('active');
+}
+setInterval(() => {
+    blink()
+}, 300);
+
+const stringArr = [dynamicElem.textContent, dynamicElem2.textContent];
+
+function randomString() {
+    const dynamicText = stringArr[0];
+    const dynamicTextArr = dynamicText.split('');
+    dynamicElem.textContent = '';
+    return dynamicTextArr
+}
+function randomString2() {
+    const dynamicText2 = stringArr[1];
+    const dynamicTextArr2 = dynamicText2.split('');
+    dynamicElem2.textContent = '';
+    return dynamicTextArr2;
+
+}
+
+
+function dynamic(Arr) {
+    if (Arr.length > 0) {
+        dynamicElem.textContent += Arr.shift();
+        setTimeout(() => {
+            dynamic(Arr)
+        }, 350);
+    } else {
+        setTimeout(() => {
+            reset();
+        }, 3000);
+    }
+};
+dynamic(randomString());
+
+function dynamic2(Arr2) {
+    if (Arr2.length > 0) {
+        dynamicElem2.textContent += Arr2.shift();
+        setTimeout(() => {
+            dynamic2(Arr2)
+        }, 350);
+    }
+}
+dynamic2(randomString2());
+
+function reset() {
+    dynamicElem.textContent = '';
+    dynamicElem2.textContent = '';
+    dynamic(randomString());
+    dynamic2(randomString2());
+}
