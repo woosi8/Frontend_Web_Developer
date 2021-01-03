@@ -328,37 +328,51 @@ function randomString2() {
     const dynamicTextArr2 = dynamicText2.split('');
     dynamicElem2.textContent = '';
     return dynamicTextArr2;
+}
+dynamicElem2.textContent = '';
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-function dynamic(Arr) {
+async function dynamic(Arr) {
     if (Arr.length > 0) {
         dynamicElem.textContent += Arr.shift();
         setTimeout(() => {
             dynamic(Arr)
-        }, 350);
-    } else {
+        }, await delay(350));
+    }
+    else {
+        dynamic2(randomString2());
         setTimeout(() => {
-            reset();
-        }, 3000);
+            reset()
+        }, 5000);
     }
 };
 dynamic(randomString());
 
-function dynamic2(Arr2) {
+async function dynamic2(Arr2) {
     if (Arr2.length > 0) {
         dynamicElem2.textContent += Arr2.shift();
         setTimeout(() => {
             dynamic2(Arr2)
-        }, 350);
+        }, await delay(250));
+    } else {
+        // setTimeout(() => {
+        //     reset()
+        // }, 5800);
     }
 }
-dynamic2(randomString2());
+const time = 3100;
+// setTimeout(() => {
+//     dynamic2(randomString2());
+// }, time);
+
 
 function reset() {
     dynamicElem.textContent = '';
     dynamicElem2.textContent = '';
     dynamic(randomString());
-    dynamic2(randomString2());
+    // dynamic2(randomString2());
+
 }

@@ -209,7 +209,7 @@ img{
 }
 
 
-.home__title .dynamic::after{
+.home__title div::after{
   content: "";
   clear: both;
   display: block;
@@ -218,10 +218,14 @@ img{
   right: -10px;
   width: 4px;
   height: 100%;
-  background-color: red;
+  background-color: var(--color-light-white);
 }
 
-.home__title .dynamic2::after{
+.home__title.active div::after{
+  display: none;
+}
+
+/* .home__title .dynamic2::after{
   content: "";
   clear: both;
   display: block;
@@ -231,7 +235,7 @@ img{
   width: 4px;
   height: 100%;
   background-color: blue;
-}
+} */
 
 .home__title.blink div{
   display: none;
