@@ -329,13 +329,13 @@ function randomString2() {
     dynamicElem2.textContent = '';
     return dynamicTextArr2;
 }
-dynamicElem2.textContent = '';
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function dynamic(Arr) {
+    dynamicElem2.textContent = '';
     if (Arr.length > 0) {
         dynamicElem.textContent += Arr.shift();
         setTimeout(() => {
@@ -363,11 +363,6 @@ async function dynamic2(Arr2) {
         // }, 5800);
     }
 }
-const time = 3100;
-// setTimeout(() => {
-//     dynamic2(randomString2());
-// }, time);
-
 
 function reset() {
     dynamicElem.textContent = '';
