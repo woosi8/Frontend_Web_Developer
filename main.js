@@ -109,6 +109,7 @@ document.addEventListener('scroll', () => {
 const workBtnContainer = document.querySelector('.work__categories') //project 버튼 전체
 const projectContainer = document.querySelector('.work__projects') //컨텐츠 전체
 const proejects = document.querySelectorAll('.project') //컨텐츠 각각 data-type
+const categoryCount = document.querySelectorAll('.category__count');
 workBtnContainer.addEventListener('click', (e) => {
     const filter =
         // button에는 data-filter값이 있지만 그 안에 span태그에는 없어서
