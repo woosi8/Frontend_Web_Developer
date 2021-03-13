@@ -6,8 +6,6 @@ const navbarHeight = navbar.getBoundingClientRect().height;
 const topElem = document.querySelector(".top-arrow");
 const btt = document.querySelector("#back-to-top");
 let scrollPos;
-console.log(window.scrollY);
-console.log(navbarHeight);
 
 document.addEventListener("scroll", () => {
 	// console.log(`navbarHeight :${navbarHeight}`);
