@@ -51,7 +51,7 @@ navbarMenu.addEventListener("click", (event) => {
 });
 // End// End// End// End// End// End// End// End
 
-///////////////////////////////// Navbar toggle button for small screen
+///////////////////////////////// Navbar toggle button for responsive screen (small screen)
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 navbarToggleBtn.addEventListener("click", () => {
 	navbarMenu.classList.toggle("open");
@@ -89,20 +89,6 @@ document.addEventListener("scroll", () => {
 });
 // End// End// End// End// End// End// End// End
 
-// ????????????????????????????????????Skills (make a bar with span tag)
-// const skillV = document.querySelectorAll('.skill_value')
-// const dataElem = skillV.forEach((e) => {
-//     let dataDisplay = e.target.dataset.graph
-//     console.log(dataDisplay)
-
-//     e.target.style.width = dataDisplay
-// })
-// for (let i = 0; i < skillV.length; i++) {
-//     // const dataElem = skillV[i].dataset.graph
-//     console.log(skillV)
-//     // skillV[i].style.witdh = dataElem
-// }
-
 ///////////////////////////////// Projects
 const workBtnContainer = document.querySelector(".work__categories"); //project 버튼 전체
 const projectContainer = document.querySelector(".work__projects"); //컨텐츠 전체
@@ -116,7 +102,7 @@ workBtnContainer.addEventListener("click", (e) => {
 		// 클릭한곳이 즉, e값이 span이라면 span의 부모 즉 button에 data-filter값을 가져온다
 		e.target.dataset.filter || e.target.parentNode.dataset.filter;
 	if (filter == null) {
-		// 혹시 몰라서 filter가 null 이면 아무것도 하지않기
+		// 에러방지를 위해 filter가 null 이면 아무것도 하지않기
 		return;
 	}
 
@@ -150,7 +136,7 @@ let typeCss = projectsArray.filter((value) => value.dataset.type === "css");
 let typeVjs = projectsArray.filter((value) => value.dataset.type === "vjs");
 let typeNote = projectsArray.filter((value) => value.dataset.type === "react");
 categoryBtn.forEach((btn) => {
-	const child = btn.childNodes[3];
+	const child = btn.childNodes[3]; //btn의 childNodes의 3번째의 innerText값이 들어있다.
 	switch (btn.dataset.filter) {
 		case "*":
 			child.innerText = projectsArray.length;
