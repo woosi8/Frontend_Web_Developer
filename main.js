@@ -2,8 +2,8 @@
 
 ///////////////////////////////// Make navbar transparent when it is on the top + Show "arrow up" bittpm wjem scrp;;omg dpwm
 const navbar = document.querySelector("#navbar");
-const navbarHeight = navbar.getBoundingClientRect().height;
-const topElem = document.querySelector(".top-arrow");
+const navbarHeight = navbar.getBoundingClientRect().height; // Viewport의 시작지점을 기준으로한 상대좌표 Y 값.
+const topArrow = document.querySelector(".top-arrow");
 const btt = document.querySelector("#back-to-top");
 let scrollPos;
 
@@ -11,11 +11,23 @@ document.addEventListener("scroll", () => {
 	// console.log(`navbarHeight :${navbarHeight}`);
 	if (window.scrollY > navbarHeight) {
 		navbar.classList.add("navbar--dark");
-		topElem.classList.add("visible");
+		topArrow.classList.add("visible");
 	} else {
 		navbar.classList.remove("navbar--dark");
-		topElem.classList.remove("visible");
+		topArrow.classList.remove("visible");
 	}
+});
+// End// End// End// End// End// End// End// End
+
+///////////////////////////////// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelectorAll(".home__container");
+
+home.forEach((target) => {
+	const homeHeight = target.getBoundingClientRect().height;
+	document.addEventListener("scroll", () => {
+		// 스크롤페이드인: 내려가는 스크롤 값에 따라 opacity값에 반영되도록. 예) 1- 400/800 = opacity 0.5
+		target.style.opacity = 1 - window.scrollY / homeHeight;
+	});
 });
 // End// End// End// End// End// End// End// End
 
@@ -43,10 +55,8 @@ navbarMenu.addEventListener("click", (event) => {
 		// link가 null이면 아무것도 하지않고 리턴해서 더이상 밑에 있는 코드가 실행되지 않도록 한다
 		return;
 	}
-	// const scrollTo = document.querySelector(link);
-	// scrollTo.scrollIntoView({ behavior: "smooth" });
-	navbarMenu.classList.remove("open"); // 네브바 클릭시 항상 창이 닫힐수있도록(반응형에서)
 	scroll(link);
+	navbarMenu.classList.remove("open"); // 네브바 클릭시 항상 창이 닫힐수있도록(반응형에서)
 });
 // End// End// End// End// End// End// End// End
 
@@ -71,28 +81,7 @@ function zoomOut(event) {
 }
 // End// End// End// End// End// End// End// End
 
-///////////////////////////////// Handle click on :contact me: button on home
-// const homeContactBtn = document.querySelector(".home__contact");
-// homeContactBtn.addEventListener("click", () => {
-//     scrollIntoView("#contact");
-// });
-// End// End// End// End// End// End// End// End
-
-///////////////////////////////// Make home slowly fade to transparent as the window scrolls down
-const home = document.querySelectorAll(".home__container");
-
-home.forEach((target) => {
-	const homeHeight = target.getBoundingClientRect().height;
-	document.addEventListener("scroll", () => {
-		// 공식만든거임: 내려가는 스크롤 값에 따라 opacity값에 반영되도록. 예) 1- 400/800 = opacity 0.5
-		target.style.opacity = 1 - window.scrollY / homeHeight;
-	});
-});
-// End// End// End// End// End// End// End// End
-
-///////////////////////////////Make Sliders for home section
-
-const sliderWrapper = document.querySelector("#home");
+// const sliderWrapper = document.querySelector("#home");
 const sliderContainer = document.querySelector(".slide"); //ul
 const slides = document.querySelectorAll(".slides"); // li
 
@@ -110,7 +99,7 @@ function calculateTallestSlide() {
 		}
 	}
 	sliderContainer.style.height = topHeight + "px";
-	sliderWrapper.style.height = topHeight + "px";
+	// sliderWrapper.style.height = topHeight + "px";
 }
 calculateTallestSlide();
 
@@ -156,7 +145,7 @@ navNext.addEventListener("click", (event) => {
 	if (currentIndex < slideCount - 1) {
 		goToSlide(currentIndex + 1);
 	} else {
-		goToSlide(0);
+		goToSlide(0); //마지막 슬라이드에서 첫 슬라이드로
 	}
 });
 
@@ -181,60 +170,35 @@ slidePager.addEventListener("click", (e) => {
 
 ///////////////////////////////// Modal in Home - 1
 const homeBtn = document.querySelectorAll(".home__contact"); //resume button
-const testBtn = document.querySelectorAll(".testimonial__contact"); //certification button
+const testiBtn = document.querySelectorAll(".testimonial__contact"); //certification button
 const modal = document.querySelectorAll(".modal");
 const overlay = document.querySelectorAll(".modal__overlay"); // black background
 const closeBtn = document.querySelectorAll(".closeBtn");
 
 const openModal = (event) => {
-	event.currentTarget.nextElementSibling.classList.add("hidden"); //modal
-
-	// when you use node , you should be careful of line break
-	// event.currentTarget.parentNode.childNodes[9].classList.add('hidden')
+	// 버튼이 modal에 있지않고 home에 있어서 homebtn 옆에 있는 modal 선택
+	event.currentTarget.nextElementSibling.classList.add("outbreak"); //modal
 };
 const closeModal = (event) => {
-	event.currentTarget.parentNode.classList.remove("hidden"); //modal
+	event.currentTarget.parentNode.classList.remove("outbreak"); //modal
 };
+// 모달에 있는 자식 (모달의 배경)
 overlay.forEach((event) => {
 	event.addEventListener("click", closeModal);
 });
+// 모달의 x버튼
 closeBtn.forEach((event) => {
 	event.addEventListener("click", closeModal);
 });
 homeBtn.forEach((event) => {
 	event.addEventListener("click", openModal);
 });
-testBtn.forEach((event) => {
-	event.addEventListener("click", openModal);
-});
-
-// Modal in Home - 2
-// const homeBtn = document.querySelectorAll('.home__contact')
-// const modal = document.querySelectorAll('.modal')
-// const overlay = document.querySelectorAll('.modal__overlay')
-// const closeBtn = document.querySelectorAll('.closeBtn')
-
-// overlay.forEach((e) => {
-//     e.addEventListener('click', (event) => {
-//         event.target.parentNode.parentNode.classList.remove('hidden')
-//     })
-// })
-// closeBtn.forEach((e) => {
-//     e.addEventListener('click', (event) => {
-//         event.target.parentNode.parentNode.classList.remove('hidden')
-//     })
-// })
-// homeBtn.forEach((e) => {
-//     e.addEventListener('click', (event) => {
-//         event.target.parentNode.classList.add('hidden')
-//     })
-// })
-//End
 
 ///////////////////////////////// Dynamic and blink
 const homeTitleElem = document.querySelector(".home__title");
 const dynamicElem = document.querySelector(".dynamic");
 const dynamicElem2 = document.querySelector(".dynamic2");
+// 깜빡임 효과
 function blink() {
 	homeTitleElem.classList.toggle("active");
 }
@@ -244,13 +208,13 @@ setInterval(() => {
 
 const stringArr = [dynamicElem.textContent, dynamicElem2.textContent];
 
-function randomString() {
+function dynamicString() {
 	// const dynamicText = stringArr[0];
 	const dynamicTextArr = stringArr[0].split("");
-	dynamicElem.textContent = "";
+	dynamicElem.textContent = ""; // 첫화면에서 나오지 않게
 	return dynamicTextArr;
 }
-function randomString2() {
+function dynamicString2() {
 	// const dynamicText2 = stringArr[1];
 	const dynamicTextArr2 = stringArr[1].split("");
 	dynamicElem2.textContent = "";
@@ -258,6 +222,7 @@ function randomString2() {
 }
 
 function delay(ms) {
+	// setTimeout이 비동기 web api이므로 비동기 처리를 해결하기위해
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -267,35 +232,30 @@ async function dynamic(Arr) {
 		dynamicElem.textContent += Arr.shift(); //배열 앞에서 부터 더한다
 		setTimeout(() => {
 			dynamic(Arr);
-		}, await delay(350)); //시간차로 반복 배열에 글자가 다 소진될때까지
+		}, await delay(170)); //시간차로 반복 배열에 글자가 다 소진될때까지
 		// 1번줄이 다 나오고 난 후 실행
 	} else {
-		dynamic2(randomString2());
+		dynamic2(dynamicString2());
 		setTimeout(() => {
-			reset(); // 다 실행된후(5초) 초기화
-		}, 5000);
+			reset(); // 다 실행된후(6초) 초기화
+		}, 6000);
 	}
 }
-dynamic(randomString());
+dynamic(dynamicString());
 
 async function dynamic2(Arr2) {
 	if (Arr2.length > 0) {
 		dynamicElem2.textContent += Arr2.shift();
 		setTimeout(() => {
 			dynamic2(Arr2);
-		}, await delay(250));
-	} else {
-		// setTimeout(() => {
-		//     reset()
-		// }, 5800);
+		}, await delay(170));
 	}
 }
 
 function reset() {
 	dynamicElem.textContent = "";
 	dynamicElem2.textContent = "";
-	dynamic(randomString());
-	// dynamic2(randomString2());
+	dynamic(dynamicString()); //리셋하고 다시 시작
 }
 
 ///////////////////////////////// Work Projects
@@ -304,11 +264,9 @@ const projectContainer = document.querySelector(".work__projects"); //컨텐츠 
 const proejects = document.querySelectorAll(".project"); //컨텐츠 각각 data-type
 const projectsArray = [...proejects];
 // const categoryCount = document.querySelectorAll(".category__count");
+// 이벤트 위임
 workBtnContainer.addEventListener("click", (event) => {
 	const filter =
-		// button에는 data-filter값이 있지만 그 안에 span태그에는 없어서
-		// p태그는 btn클릭 범주안에 들어가있어서 된다.
-		// 클릭한곳이 즉, e값이 span이라면 span의 부모 즉 button에 data-filter값을 가져온다
 		event.target.dataset.filter || event.target.parentNode.dataset.filter;
 	if (filter == null) {
 		// 에러방지를 위해 filter가 null 이면 아무것도 하지않기
@@ -344,10 +302,11 @@ workBtnContainer.addEventListener("click", (event) => {
 
 // Make category numbers automatically when the proejcts add
 const categoryBtn = document.querySelectorAll(".category__btn");
-let typeCss = projectsArray.filter((value) => value.dataset.type === "css");
-let typeVjs = projectsArray.filter((value) => value.dataset.type === "js");
-let typeNote = projectsArray.filter((value) => value.dataset.type === "react");
+let typeCss = projectsArray.filter((value) => value.dataset.type === "css"); //filter 배열로 리턴
+let typeJs = projectsArray.filter((value) => value.dataset.type === "js");
+let typeReact = projectsArray.filter((value) => value.dataset.type === "react");
 categoryBtn.forEach((btn) => {
+	// count 숫자
 	const child = btn.childNodes[3]; //btn의 childNodes의 3번째의 innerText값이 들어있다.
 	switch (btn.dataset.filter) {
 		case "*":
@@ -358,33 +317,28 @@ categoryBtn.forEach((btn) => {
 			child.innerText = typeCss.length;
 			break;
 		case "js":
-			child.innerText = typeVjs.length;
+			child.innerText = typeJs.length;
 			break;
 		case "react":
-			child.innerText = typeNote.length;
+			child.innerText = typeReact.length;
 			break;
 		default:
 			break;
 	}
-	// if (btn.dataset.filter === 'css') {
-	//     child.innerText = typeCss.length;
-	//     console.log(child);
-	// }
 });
 
 // End// End// End// End// End// End// End// End
 
 ///////////////////////////////// Slide Show in Testimonial
 (function () {
-	const testElem = document.querySelector("#testimonials");
 	function showValue() {
-		const testmonials = document.querySelector(".testimonials");
-		let posY = testElem.getBoundingClientRect().top;
-		//  posY의 현재탑높이값이 브라우저 전체높이에 3/10 보다 작을경우, 즉 엘리먼트의 탑이 전체높이에 3/10만큼 남았을때 조건발동
-		if (posY < window.innerHeight * 0.3) {
-			testmonials.classList.add("active");
+		const testiElem = document.querySelector(".testimonials");
+		let posY = testiElem.getBoundingClientRect().top;
+
+		if (posY < window.innerHeight / 3) {
+			testiElem.classList.add("active");
 		} else {
-			testmonials.classList.remove("active");
+			testiElem.classList.remove("active");
 		}
 	}
 
@@ -392,5 +346,9 @@ categoryBtn.forEach((btn) => {
 		showValue();
 	});
 })();
+
+testiBtn.forEach((event) => {
+	event.addEventListener("click", openModal);
+});
 
 // End
