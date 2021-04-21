@@ -236,9 +236,9 @@ async function dynamic(Arr) {
 		// 1번줄이 다 나오고 난 후 실행
 	} else {
 		dynamic2(dynamicString2());
-		setTimeout(() => {
-			reset(); // 다 실행된후(6초) 초기화
-		}, 6000);
+		// setTimeout(() => {
+		// 	reset(); // 다 실행된후(6초) 초기화
+		// }, 6000);
 	}
 }
 dynamic(dynamicString());
@@ -252,11 +252,11 @@ async function dynamic2(Arr2) {
 	}
 }
 
-function reset() {
-	dynamicElem.textContent = "";
-	dynamicElem2.textContent = "";
-	dynamic(dynamicString()); //리셋하고 다시 시작
-}
+// function reset() {
+// 	dynamicElem.textContent = "";
+// 	dynamicElem2.textContent = "";
+// 	dynamic(dynamicString()); //리셋하고 다시 시작
+// }
 
 ///////////////////////////////// Work Projects
 const workBtnContainer = document.querySelector(".work__categories"); //project 버튼 전체
