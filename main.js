@@ -359,7 +359,7 @@ const boxes = document.querySelector(".testimonials");
 const options = {
 	root: null, // 실행기준
 	rootMargin: "0px", //default값 , 사용자에게 현재 보여지지는 않지만 미리 근접해 있는 경우 이미지, 컨텐츠를 준배해 놓겠다 할때 유용하게 쓰인다.100px
-	threshold: 0.8, // 얼마만큼 보여져야 콜백함수가 수행되는지 0.0부터 1까지
+	threshold: 0.4, // 얼마만큼 보여져야 콜백함수가 수행되는지 0.0부터 1까지
 };
 const callback = (entries, observer) => {
 	entries.forEach((entry) => {
