@@ -103,7 +103,7 @@ function calculateTallestSlide() {
 }
 calculateTallestSlide();
 
-// slide마다 left값을 인덱스 순서대로 100, 200, 300  나열해주기 위한 함수
+// slide마다 left값을 인덱스 순서대로 0, 100, 200  나열해주기 위한 함수
 function slideLeft() {
 	for (let j = 0; j < slideCount; j++) {
 		slides[j].style.left = j * 100 + "%";
@@ -334,7 +334,7 @@ categoryBtn.forEach((btn) => {
 	function showValue() {
 		const testiElem = document.querySelector(".testimonials");
 		let posY = testiElem.getBoundingClientRect().top;
-
+		console.log(window.innerHeight);
 		if (posY < window.innerHeight / 3) {
 			testiElem.classList.add("active");
 		} else {
