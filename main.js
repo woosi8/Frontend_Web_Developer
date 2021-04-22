@@ -330,25 +330,46 @@ categoryBtn.forEach((btn) => {
 // End// End// End// End// End// End// End// End
 
 ///////////////////////////////// Slide Show in Testimonial
-(function () {
-	function showValue() {
-		const testiElem = document.querySelector(".testimonials");
-		let posY = testiElem.getBoundingClientRect().top;
-		console.log(window.innerHeight);
-		if (posY < window.innerHeight / 3) {
-			testiElem.classList.add("active");
-		} else {
-			testiElem.classList.remove("active");
-		}
-	}
+// (function () {
+// 	function showValue() {
+// 		const testiElem = document.querySelector(".testimonials");
+// 		let posY = testiElem.getBoundingClientRect().top;
+// 		console.log(window.innerHeight);
+// 		if (posY < window.innerHeight / 3) {
+// 			testiElem.classList.add("active");
+// 		} else {
+// 			testiElem.classList.remove("active");
+// 		}
+// 	}
 
-	window.addEventListener("scroll", function () {
-		showValue();
-	});
-})();
+// 	window.addEventListener("scroll", function () {
+// 		showValue();
+// 	});
+// })();
 
-testiBtn.forEach((event) => {
-	event.addEventListener("click", openModal);
-});
+// testiBtn.forEach((event) => {
+// 	event.addEventListener("click", openModal);
+// });
 
 // End
+
+// Intersection Observer
+const boxes = document.querySelector(".testimonials");
+
+const options = {
+	root: null, // 실행기준
+	rootMargin: "0px", //default값 , 사용자에게 현재 보여지지는 않지만 미리 근접해 있는 경우 이미지, 컨텐츠를 준배해 놓겠다 할때 유용하게 쓰인다.100px
+	threshold: 0.8, // 얼마만큼 보여져야 콜백함수가 수행되는지 0.0부터 1까지
+};
+const callback = (entries, observer) => {
+	entries.forEach((entry) => {
+		console.log(entry.target);
+		if (entry.isIntersecting) {
+			entry.target.classList.add("active");
+		} else {
+			entry.target.classList.remove("active");
+		}
+	});
+};
+const observer = new IntersectionObserver(callback, options);
+observer.observe(boxes);
