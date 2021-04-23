@@ -354,16 +354,15 @@ categoryBtn.forEach((btn) => {
 // End
 
 // Intersection Observer
-const boxes = document.querySelector(".testimonials");
+const testiElem = document.querySelector(".testimonials");
 
 const options = {
-	root: null, // 실행기준
+	root: null, // 실행기준 vieport
 	rootMargin: "0px", //default값 , 사용자에게 현재 보여지지는 않지만 미리 근접해 있는 경우 이미지, 컨텐츠를 준배해 놓겠다 할때 유용하게 쓰인다.100px
 	threshold: 0.4, // 얼마만큼 보여져야 콜백함수가 수행되는지 0.0부터 1까지
 };
 const callback = (entries, observer) => {
 	entries.forEach((entry) => {
-		console.log(entry.target);
 		if (entry.isIntersecting) {
 			entry.target.classList.add("active");
 		} else {
@@ -372,4 +371,59 @@ const callback = (entries, observer) => {
 	});
 };
 const observer = new IntersectionObserver(callback, options);
-observer.observe(boxes);
+observer.observe(testiElem);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 1. 모든 섹션 요스들을 가지고 온다
+const sectionIds = [
+	"#home",
+	"#about",
+	"#skills",
+	"#work",
+	"#testimonials",
+	"#contact",
+];
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+	document.querySelector(`[data-link="${id}"]`)
+);
+
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+	selectedNavItem.classList.remove("active");
+	// selectedNavItem = navItems[selectedNavIndex];
+	selectedNavItem = selected;
+	selectedNavItem.classList.add("active");
+}
+const observerOptions = {
+	root: null,
+	rootMargin: "0px",
+	threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+	entries.forEach((entry) => {
+		// 빠져나가는 방향에 따라 정해주기
+		// 보여지는 섹션이 위로 빠지는지 아래로 빠지는지 확인해서 다음, 이전이 선택되게 한다
+		// 위로 나가는 경우는 y좌표가 마이너스 그래서 index+1을 해주고
+		// 아래로 나가는 경우 y좌표가 플러스 그래서 index-1
+		// entry 가 빠져나갈떄(isIntersecting) entry는 빠져나가는 섹션을 가리키고있따
+		if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+			// entry.intersectionRatio : 페이지가 랜딩되면서 바로 몇몇 섹션에서 콜백함수가 실행된다. 이걸 해결해주기 위해 0이상을 처리해주는 조건을 줌. default가 0이라서
+			const index = sectionIds.indexOf(`#${entry.target.id}`);
+			// 스크롤링이 아래로 되어서 페이지가 올라옴
+			if (entry.boundingClientRect.y < 0) {
+				selectedNavIndex = index + 1;
+			} else {
+				selectedNavIndex = index - 1;
+			}
+		}
+	});
+};
+const observerr = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observerr.observe(section));
+
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
