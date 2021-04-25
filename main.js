@@ -31,13 +31,6 @@ home.forEach((target) => {
 });
 // End// End// End// End// End// End// End// End
 
-///////////////////////////////// Common Functions
-function scroll(selector) {
-	const scrollTo = document.querySelector(selector);
-	scrollTo.scrollIntoView({ behavior: "smooth" });
-}
-// End// End// End// End// End// End// End// End
-
 ///////////////////////////////// Handle click on the "arrow up" button
 btt.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -57,7 +50,6 @@ navbarMenu.addEventListener("click", (event) => {
 	}
 	scroll(link);
 	navbarMenu.classList.remove("open"); // 네브바 클릭시 항상 창이 닫힐수있도록(반응형에서)
-	selectNavItem(target);
 });
 // End// End// End// End// End// End// End// End
 
@@ -399,6 +391,15 @@ function selectNavItem(selected) {
 	selectedNavItem = selected; //다시 할당
 	selectedNavItem.classList.add("active");
 }
+
+///////////////////////////////// Common Functions
+function scroll(selector) {
+	const scrollTo = document.querySelector(selector);
+	scrollTo.scrollIntoView({ behavior: "smooth" });
+	selectNavItem(navItems[sectionIds.indexOf(selector)]);
+}
+// End// End// End// End// End// End// End// End
+
 const observerOptions = {
 	root: null,
 	rootMargin: "0px",
