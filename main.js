@@ -57,6 +57,7 @@ navbarMenu.addEventListener("click", (event) => {
 	}
 	scroll(link);
 	navbarMenu.classList.remove("open"); // 네브바 클릭시 항상 창이 닫힐수있도록(반응형에서)
+	selectNavItem(target);
 });
 // End// End// End// End// End// End// End// End
 
@@ -357,10 +358,12 @@ categoryBtn.forEach((btn) => {
 const testiElem = document.querySelector(".testimonials");
 
 const options = {
-	root: null, // 실행기준 vieport
-	rootMargin: "0px", //default값 , 사용자에게 현재 보여지지는 않지만 미리 근접해 있는 경우 이미지, 컨텐츠를 준배해 놓겠다 할때 유용하게 쓰인다.100px
+	root: null, // 실행기준 vieport , 실행기준을 윈도우 창 기준이 아닌 요소(기준)을 넣을수 있음 document.querySelector(".testimonials");
+	rootMargin: "0px", //default값 ,  윈도우 창 보이는 포함영역을 마진까지 해준다는뜻 , 활용 방법 : 사용자에게 현재 보여지지는 않지만 미리 근접해 있는 경우 이미지, 컨텐츠를 준비해 놓겠다 할때 유용하게 쓰인다.100px ,
 	threshold: 0.4, // 얼마만큼 보여져야 콜백함수가 수행되는지 0.0부터 1까지
 };
+//두가지 인자가 전달됨
+//entrie : 화면상에 들어온 요소, observer:
 const callback = (entries, observer) => {
 	entries.forEach((entry) => {
 		if (entry.isIntersecting) {
@@ -370,7 +373,7 @@ const callback = (entries, observer) => {
 		}
 	});
 };
-const observer = new IntersectionObserver(callback, options);
+const observer = new IntersectionObserver(callback, options); //IntersectionObserver은 callbakc과 options가 전달된다
 observer.observe(testiElem);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 1. 모든 섹션 요스들을 가지고 온다
@@ -382,7 +385,7 @@ const sectionIds = [
 	"#testimonials",
 	"#contact",
 ];
-const sections = sectionIds.map((id) => document.querySelector(id));
+const sections = sectionIds.map((id) => document.querySelector(id)); // 배열을 빙글빙글 돌면서 각각의 아이디를 섹션 돔요소로 변환
 const navItems = sectionIds.map((id) =>
 	document.querySelector(`[data-link="${id}"]`)
 );
@@ -393,7 +396,7 @@ let selectedNavItem = navItems[0];
 function selectNavItem(selected) {
 	selectedNavItem.classList.remove("active");
 	// selectedNavItem = navItems[selectedNavIndex];
-	selectedNavItem = selected;
+	selectedNavItem = selected; //다시 할당
 	selectedNavItem.classList.add("active");
 }
 const observerOptions = {
@@ -402,21 +405,23 @@ const observerOptions = {
 	threshold: 0.3,
 };
 
-const observerCallback = (entries, observer) => {
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+const observerCallback = (entries, observers) => {
 	entries.forEach((entry) => {
+		// 아래 if문을 해주는 이유 : 첫화면의 섹션은 이미 화면상에 들어와 있어서 나가지도 들어가지도 않는것으로 인식해기때문에
 		// 빠져나가는 방향에 따라 정해주기
 		// 보여지는 섹션이 위로 빠지는지 아래로 빠지는지 확인해서 다음, 이전이 선택되게 한다
-		// 위로 나가는 경우는 y좌표가 마이너스 그래서 index+1을 해주고
-		// 아래로 나가는 경우 y좌표가 플러스 그래서 index-1
-		// entry 가 빠져나갈떄(isIntersecting) entry는 빠져나가는 섹션을 가리키고있따
+		// entry 가 빠져나갈떄(!isIntersecting) entry는 빠져나가는 섹션을 가리키고있따
 		if (!entry.isIntersecting && entry.intersectionRatio > 0) {
-			// entry.intersectionRatio : 페이지가 랜딩되면서 바로 몇몇 섹션에서 콜백함수가 실행된다. 이걸 해결해주기 위해 0이상을 처리해주는 조건을 줌. default가 0이라서
+			// entry.intersectionRatio : 페이지가 랜딩되면서 바로 몇몇 섹션에서 콜백함수가 바로 실행된 경우가 있다.
+			//  이걸 해결해주기 위해 0이상을 처리해주는 조건을 줌. default가 0이라서
 			const index = sectionIds.indexOf(`#${entry.target.id}`);
-			// 스크롤링이 아래로 되어서 페이지가 올라옴
+			// 섹션이 위로 나가는 경우는 현재 보이는 요소의 y좌표가 마이너스 그래서 index+1을 해주고 (휠을 아래로)
 			if (entry.boundingClientRect.y < 0) {
 				selectedNavIndex = index + 1;
 			} else {
-				selectedNavIndex = index - 1;
+				// 아래로 나가는 경우 y좌표가 플러스 그래서 index-1 (휠을 위로)
+				selectedNavIndex = index - 1; //다음에 선택해야될 인덱스
 			}
 		}
 	});
@@ -424,6 +429,23 @@ const observerCallback = (entries, observer) => {
 const observerr = new IntersectionObserver(observerCallback, observerOptions);
 sections.forEach((section) => observerr.observe(section));
 
-// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+// 예외사항 : 마지막 섹션
 
+// 위에 클릭nav로 페이지를 이동시 scroll을 해주면 여기도 반복적으로 호출이 된다.
+// window.addEventListener("scroll", () => {
+// scroll: 브라우저에서 모든 스크롤이 해당하는 이벤트가 발생할 때마다 생성되는 이벤트
+window.addEventListener("wheel", () => {
+	// 사용자가 마우스로 스스로 스크롤 할때는 wheel
+	if (window.scrollY === 0) {
+		selectedNavIndex = 0;
+	}
+	// 마지막까지 스크롤 했을때 scrollY는 현재 창의 최상단 높이, window.innerHeight는 현재창의 높이니깐 더하면 전체 높이가 된다
+	// 소수점으로 조건이 안맞을경우도 있어서 올림을 해준다
+	else if (
+		Math.ceil(window.scrollY + window.innerHeight) >= document.body.scrollHeight
+	) {
+		selectedNavIndex = navItems.length - 1; //마지막 인덱스 가르키기
+	}
+	selectNavItem(navItems[selectedNavIndex]);
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
