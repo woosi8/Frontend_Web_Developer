@@ -541,6 +541,11 @@ img{
   background-color: var(--color-orange);
 }
 
+.skill:last-child .skill_value {
+  width:30% !important;
+}
+
+
 .skillset__right{
   flex-basis: 40%;
 }
