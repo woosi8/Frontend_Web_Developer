@@ -298,6 +298,7 @@ const categoryBtn = document.querySelectorAll(".category__btn");
 let typeCss = projectsArray.filter((value) => value.dataset.type === "css"); //filter 배열로 리턴
 let typeJs = projectsArray.filter((value) => value.dataset.type === "js");
 let typeReact = projectsArray.filter((value) => value.dataset.type === "react");
+let typeCrud = projectsArray.filter((value) => value.dataset.type === "crud");
 categoryBtn.forEach((btn) => {
 	// count 숫자
 	const child = btn.childNodes[3]; //btn의 childNodes의 3번째의 innerText값이 들어있다.
@@ -314,6 +315,9 @@ categoryBtn.forEach((btn) => {
 			break;
 		case "react":
 			child.innerText = typeReact.length;
+			break;
+		case "crud":
+			child.innerText = typeCrud.length;
 			break;
 		default:
 			break;
