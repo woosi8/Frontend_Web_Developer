@@ -4,11 +4,9 @@
 
 I'm currently learning VanilaJavascript
 
-2020 Goals: Get a job overseas, Be a soft engineer
+It's been three years since i started styuding progamming
 
-It's been a year since i started styuding progamming
-
-I used to work for a tour agency as a operator in Vietnam for a year and a half
+I used to work for a legal platform as a front-end developer about 2 yers
 
 Fun fact: I love to paly basketball and soccer.
 
