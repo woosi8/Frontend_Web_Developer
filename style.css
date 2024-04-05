@@ -474,10 +474,13 @@ img{
 .job{
   display:flex;
   align-items: center;
+  margin-bottom: 20px;
+
 }
 
-.job:first-child{
-  margin-bottom: 20px;
+.job:last-child{
+  margin-bottom: 0;
+
 }
 
 .job__description{
